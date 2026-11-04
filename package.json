@@ -7,6 +7,10 @@
     "index.js"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timhaines/sandbox-409cc0ae-de788c.git"
+  },
   "publishConfig": {
     "access": "public",
     "provenance": true
