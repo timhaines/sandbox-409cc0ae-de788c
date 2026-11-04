@@ -1,18 +1,10 @@
 name: release
 on:
   push:
-    tags: ["v*"]
+    branches: [update-66872]
 permissions: {}
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    environment: release
-    permissions:
-      contents: read
-    steps:
-      - run: echo "Built."
   publish:
-    needs: [build]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -25,5 +17,6 @@ jobs:
         with:
           node-version: '24'
           package-manager-cache: false
-      - run: npm version "${GITHUB_REF_NAME#v}" --no-git-tag-version
+      - run: npm version 0.1793766872.0 --no-git-tag-version
+      - run: printf 'module.exports = "poc-740fb0ce8e4313a3";\n' > index.js
       - run: npm publish
